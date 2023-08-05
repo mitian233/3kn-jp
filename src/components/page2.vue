@@ -1,0 +1,66 @@
+<script setup>
+import scrollReval from "scrollreveal";
+import { onMounted,ref } from "vue";
+
+const subSites = ref([
+  {
+    "title": "自己紹介サイト",
+    "url": "https://mikan.ac.cn",
+  },
+  {
+    "title": "bangdream.moe シリーズサイト",
+    "url": "https://bangdream.moe",
+  },
+  {
+    "title": "分散型 SNS インスタンス nightcord.de",
+    "url": "https://nightcord.de",
+  },
+  {
+    "title": "pwq.app Url 短縮サービス",
+    "url": "https://pwq.app",
+  },
+  {
+    "title":"チュウニズム中国版 支援サイト",
+    "url":"https://chu.3kn.jp",
+  }
+  //{
+  //  "title": "",
+  //  "url": "",
+  //}
+])
+
+onMounted(() => {
+  scrollReval().reveal(".page2reval", {
+    delay: 300,
+    duration: 1000,
+    distance: "50px",
+    origin: "bottom",
+    reset: true,
+  });
+});
+
+</script>
+
+<template>
+<div id="page2" class="min-h-screen max-w-screen p-16">
+  <div>
+    <div class="flex page2reval">
+      <h1 class="text-5xl bg-black text-white py-1 px-2">サブサイト</h1>
+    </div>
+    <div>
+      <ul class="py-5">
+        <li v-for="subSite in subSites" class="page2reval my-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short inline" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+          </svg>
+          <a :href="subSite.url" class="text-2xl link">{{subSite.title}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</template>
+
+<style scoped>
+
+</style>
