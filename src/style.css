@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .link {
-    @apply hover:text-blue-600 hover:underline;
+    @apply hover:text-blue-400 hover:underline;
 }
