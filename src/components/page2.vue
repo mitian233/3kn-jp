@@ -4,10 +4,6 @@ import { onMounted,ref } from "vue";
 
 const subSites = ref([
   {
-    "title": "自己紹介サイト",
-    "url": "https://mikan.ac.cn",
-  },
-  {
     "title": "bangdream.moe シリーズサイト",
     "url": "https://bangdream.moe",
   },
@@ -29,6 +25,21 @@ const subSites = ref([
   //}
 ])
 
+const myContacts = ref([
+  {
+    "title": "mikan.ac.cn",
+    "url": "https://mikan.ac.cn",
+  },
+  {
+    "title": "Twitter",
+    "url": "https://twitter.com/9_bishi",
+  },
+  {
+    "title": "GitHub",
+    "url": "https://github.com/mitian233",
+  }
+])
+
 onMounted(() => {
   scrollReval().reveal(".page2reval", {
     delay: 300,
@@ -42,18 +53,37 @@ onMounted(() => {
 </script>
 
 <template>
-<div id="page2" class="min-h-screen max-w-screen p-16">
-  <div>
+<div id="page2" class="max-w-screen md:p-16 p-10 flex flex-row flex-wrap">
+  <div class="md:w-1/2 w-full">
     <div class="flex page2reval">
-      <h1 class="text-5xl bg-black text-white py-1 px-2">サブサイト</h1>
+      <h1 class="text-5xl bg-black text-white py-1 px-2">Sub Sites</h1>
     </div>
     <div>
       <ul class="py-5">
         <li v-for="subSite in subSites" class="page2reval my-1">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short inline" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
-          </svg>
-          <a :href="subSite.url" class="text-2xl link">{{subSite.title}}</a>
+          <a :href="subSite.url" class="text-2xl link-for-page2 flex">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short shrink-0" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+            </svg>
+            {{subSite.title}}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="md:w-1/2 w-full">
+    <div class="flex page2reval">
+      <h1 class="text-5xl bg-black text-white py-1 px-2">Contacts</h1>
+    </div>
+    <div>
+      <ul class="py-5">
+        <li v-for="contact in myContacts" class="page2reval my-1">
+          <a :href="contact.url" class="text-2xl link-for-page2 flex">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short shrink-0" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+            </svg>
+            {{contact.title}}
+          </a>
         </li>
       </ul>
     </div>
@@ -62,5 +92,7 @@ onMounted(() => {
 </template>
 
 <style scoped>
-
+.link-for-page2{
+  @apply hover:text-white hover:bg-black duration-100;
+}
 </style>
