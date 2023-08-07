@@ -1,6 +1,7 @@
 <script setup>
 import scrollReval from "scrollreveal";
-import { onMounted,ref } from "vue";
+import {onMounted, ref} from "vue";
+import bgImage from '../assets/william-warby-ld4wZGqlLF4-unsplash.jpg';
 
 const subSites = ref([
   {
@@ -16,8 +17,8 @@ const subSites = ref([
     "url": "https://pwq.app",
   },
   {
-    "title":"チュウニズム中国版 支援サイト",
-    "url":"https://chu.3kn.jp",
+    "title": "チュウニズム中国版 支援サイト",
+    "url": "https://chu.3kn.jp",
   }
   //{
   //  "title": "",
@@ -57,46 +58,56 @@ onMounted(() => {
 </script>
 
 <template>
-<div id="page2" class="max-w-screen md:p-16 p-10 flex flex-row flex-wrap">
-  <div class="md:w-1/2 w-full">
-    <div class="flex page2reval">
-      <h1 class="text-5xl bg-black text-white py-1 px-2">Sub Sites</h1>
+  <div id="page2" class="max-w-screen min-h-screen">
+    <div class="w-full h-full absolute" :style="{'background': `url(${bgImage}) fixed no-repeat`,'background-size':'cover'}">
     </div>
-    <div>
-      <ul class="py-5">
-        <li v-for="subSite in subSites" class="page2reval my-1">
-          <a :href="subSite.url" class="text-2xl link-for-page2 flex">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short shrink-0" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
-            </svg>
-            {{subSite.title}}
-          </a>
-        </li>
-      </ul>
+    <div class="w-full h-full absolute flex flex-col justify-center">
+      <div class="w-full h-screen md:h-fit md:p-16 p-10 flex flex-row flex-wrap bg-white">
+        <div class="md:w-1/2 w-full">
+          <div class="flex page2reval">
+            <h1 class="text-5xl bg-black text-white py-1 px-2">Sub Sites</h1>
+          </div>
+          <div>
+            <ul class="py-5">
+              <li v-for="subSite in subSites" class="page2reval my-1">
+                <a :href="subSite.url" class="text-2xl link-for-page2 flex">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                       class="bi bi-arrow-right-short shrink-0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                          d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                  </svg>
+                  {{ subSite.title }}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="md:w-1/2 w-full">
+          <div class="flex page2reval">
+            <h1 class="text-5xl bg-black text-white py-1 px-2">Contacts</h1>
+          </div>
+          <div>
+            <ul class="py-5">
+              <li v-for="contact in myContacts" class="page2reval my-1">
+                <a :href="contact.url" class="text-2xl link-for-page2 flex">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                       class="bi bi-arrow-right-short shrink-0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                          d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                  </svg>
+                  {{ contact.title }}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="md:w-1/2 w-full">
-    <div class="flex page2reval">
-      <h1 class="text-5xl bg-black text-white py-1 px-2">Contacts</h1>
-    </div>
-    <div>
-      <ul class="py-5">
-        <li v-for="contact in myContacts" class="page2reval my-1">
-          <a :href="contact.url" class="text-2xl link-for-page2 flex">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-short shrink-0" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
-            </svg>
-            {{contact.title}}
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
 </template>
 
 <style scoped>
-.link-for-page2{
+.link-for-page2 {
   @apply hover:text-white hover:bg-black duration-100;
 }
 </style>

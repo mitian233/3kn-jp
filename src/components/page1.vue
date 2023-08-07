@@ -20,9 +20,9 @@ onMounted(() => {
         <div class="flex flex-col justify-center">
           <transition name="slide">
             <div v-if="loaded">
-              <div class="w-fit md:max-w-[30vw] max-w-[70vw]">
+              <div class="w-fit md:max-w-[30vw] max-w-[70vw] text-white">
                 <a href="https://3kn.jp">
-                  <img src="../assets/logo.svg" alt="Vue logo" />
+                  <img src="../assets/logo.svg" alt="logo" />
                 </a>
               </div>
               <div class="rounded-3xl text-center mt-5">
