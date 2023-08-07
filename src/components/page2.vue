@@ -31,6 +31,10 @@ const myContacts = ref([
     "url": "https://mikan.ac.cn",
   },
   {
+    "title": "Blog",
+    "url": "https://log.3kn.jp"
+  },
+  {
     "title": "Twitter",
     "url": "https://twitter.com/9_bishi",
   },
