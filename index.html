@@ -13,11 +13,51 @@
     <meta name="twitter:description" content="3kn.jp メインサイト"/>
     <meta name="twitter:image" content="https://3kn.jp/assets/ogp.png"/>
     <meta name="twitter:url" content="https://3kn.jp"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3JH0BQ2RSZ"></script>
+    <style>
+        .scrollbar-costume{
+            &::-webkit-scrollbar {
+                width: 0.5em;
+            }
+            &::-webkit-scrollbar-track {
+                background: transparent;
+            }
+            &::-webkit-scrollbar-thumb {
+                background: rgba(144, 147, 153, 0.3);
+                cursor: pointer;
+                border-radius: 0;
+            }
+            &::-webkit-scrollbar-thumb:hover {
+                background: rgba(144, 147, 153, 0.5);
+            }
+            &::-webkit-scrollbar-thumb:active {
+                background: rgba(144, 147, 153, 0.7);
+            }
+            &::-webkit-scrollbar-thumb:vertical {
+                border-radius: 0;
+            }
+            &::-webkit-scrollbar-thumb:horizontal {
+                border-radius: 0;
+            }
+            &::-webkit-scrollbar-corner {
+                background: none;
+            }
+            &::-webkit-resizer {
+                background: none;
+            }
+        }
+    </style>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'G-3JH0BQ2RSZ');
@@ -25,7 +65,7 @@
     <link rel="icon" href="/favicon.svg"/>
     <title>3kn.jp</title>
 </head>
-<body>
+<body class="scrollbar-costume">
 <div id="app"></div>
 <script type="module" src="/src/main.js"></script>
 </body>
