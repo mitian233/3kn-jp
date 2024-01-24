@@ -46,7 +46,7 @@ const myContacts = ref([
 ])
 
 onMounted(() => {
-  scrollReveal().reveal(".page2reveal", {
+  scrollReveal().reveal(".page3reveal", {
     delay: 300,
     duration: 1000,
     distance: "50px",
@@ -58,18 +58,18 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="page3" class="max-w-screen min-h-screen font-['Poppins']">
+  <div id="page3" class="max-w-screen min-h-screen">
     <div class="w-full h-full absolute" :style="{'background': `url(${bgImage}) fixed no-repeat`,'background-size':'cover'}">
     </div>
     <div class="w-full h-full absolute flex flex-col justify-center">
       <div class="w-full h-screen md:h-fit md:p-16 p-10 flex flex-row flex-wrap bg-white">
         <div class="md:w-1/2 w-full">
-          <div class="flex page2reveal">
+          <div class="flex page3reveal">
             <h1 class="text-5xl bg-black text-white py-1 px-2">Sub Sites</h1>
           </div>
           <div>
             <ul class="py-5">
-              <li v-for="subSite in subSites" class="page2reveal my-1">
+              <li v-for="subSite in subSites" class="page3reveal my-1">
                 <a :href="subSite.url" class="text-2xl link-for-page2 flex">
                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                        class="bi bi-arrow-right-short shrink-0" viewBox="0 0 16 16">
@@ -83,12 +83,12 @@ onMounted(() => {
           </div>
         </div>
         <div class="md:w-1/2 w-full">
-          <div class="flex page2reveal">
+          <div class="flex page3reveal">
             <h1 class="text-5xl bg-black text-white py-1 px-2">Contacts</h1>
           </div>
           <div>
             <ul class="py-5">
-              <li v-for="contact in myContacts" class="page2reveal my-1">
+              <li v-for="contact in myContacts" class="page3reveal my-1">
                 <a :href="contact.url" class="text-2xl link-for-page2 flex">
                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                        class="bi bi-arrow-right-short shrink-0" viewBox="0 0 16 16">
@@ -109,5 +109,26 @@ onMounted(() => {
 <style scoped>
 .link-for-page2 {
   @apply hover:text-white hover:bg-black duration-100;
+}
+.shine {
+  overflow: hidden;
+}
+.shine::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255,255,255,0.5) 50%, rgba(229, 172, 142, 0));
+  transform: rotateZ(60deg) translate(-5em, 7.5em);
+}
+.shine:hover::before {
+  animation: shine 1s forwards;
+}
+@keyframes shine {
+  100% {
+    transform: rotateZ(60deg) translate(1em, -9em);
+  }
 }
 </style>

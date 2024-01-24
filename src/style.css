@@ -2,6 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    scroll-behavior: smooth;
+}
+
 .link {
     @apply hover:text-blue-400 hover:underline;
+}
+
+body {
+    font-family: 'SF Pro', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+.super-link {
+    @apply cursor-pointer inline-block;
+    position: relative;
+    transition: all 0.2s ease;
+}
+.super-link::before {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -2%;
+    bottom: 10%;
+    left: -2%;
+    background-color: #647eff;
+    opacity: 0.3;
+    transition: all 0.2s ease;
+}
+.super-link:hover::before {
+    top: 83%;
+    opacity: 1;
+    right: 0;
+    left: 0;
 }
