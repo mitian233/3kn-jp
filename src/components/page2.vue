@@ -22,7 +22,7 @@ onMounted(() => {
 
 <template>
   <div class="min-h-[70vh] md:min-h-screen grid grid-cols-1 md:grid-cols-5 overflow-hidden" id="page2">
-    <div class="p-6 flex flex-row md:justify-center md:col-span-2 page2revealLeft">
+    <div class="p-6 md:mt-0 mt-12 flex flex-row md:justify-center md:col-span-2 page2revealLeft">
       <div class="flex flex-col justify-center">
         <div class="text-6xl md:text-7xl font-bold">
           <p>Hi,👋</p>
@@ -38,7 +38,7 @@ onMounted(() => {
         <tbody>
         <tr>
           <td class="left-cell">I am&nbsp;</td>
-          <td>
+          <td class="md:text-justify">
             <p>
               Active contributor of Hexo theme
               <a href="https://github.com/Fechin/hexo-theme-diaspora" class="super-link">Diaspora</a>,
@@ -46,15 +46,15 @@ onMounted(() => {
               <a href="https://github.com/Diving-Fish/maimaidx-prober" class="super-link">maimaidx prober</a>
               contributor
             </p>
-            <p><!--链接就在下方-->
+            <p>
               Developed some useful tools, links are below :)
             </p>
             <p></p>
           </td>
         </tr>
         <tr>
-          <td class="left-cell min-w-[6em]">About&nbsp;</td>
-          <td>
+          <td class="left-cell min-w-[4em]">About&nbsp;</td>
+          <td class="md:text-justify">
             <p>Third-rate University student. Who's coding skills is all self-taught. Excel at transforming design
               concepts into responsive web applications. With a meticulous eye for detail and a dedication to clean
               code, can actively contribute to open-source projects, pushing the boundaries of web development.
