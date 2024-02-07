@@ -54,7 +54,7 @@ onMounted(() => {
               <div class="mt-2 text-sm text-gray-500">
                 <p>
                   It seems that you are coming from my Twitter/X bio link. I think you might be interested in my Bluesky account.
-                  So I prepared a direct link for you😎
+                  So I prepared a direct link for you :)
                 </p>
                 <p><a href="https://bsky.app/profile/3kn.jp" class="text-blue-400 underline">https://bsky.app/profile/3kn.jp</a></p>
               </div>
