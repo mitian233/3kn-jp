@@ -74,7 +74,6 @@ onMounted(() => {
   z-index: 0;
   background-image: -webkit-linear-gradient(315deg, #f2973b 25%, #fef1b4);
   background-clip: text;
-  overflow: hidden;
   position: relative;
   -webkit-text-fill-color: transparent;
 }

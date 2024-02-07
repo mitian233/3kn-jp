@@ -1,6 +1,7 @@
 <script setup>
 import {onMounted, ref} from "vue";
 import smoothScroll from '../share/smoothScroll.js';
+import BskyDialog from "./BskyDialog.vue";
 const loaded = ref(false);
 onMounted(() => {
   loaded.value = true;
@@ -9,15 +10,16 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="page1" class="min-h-screen max-w-screen relative overflow-hidden">
+  <div id="page1" class="min-h-[100lvh] max-w-screen relative overflow-hidden">
     <div class="h-screen max-w-screen absolute">
-      <video autoplay muted loop class="min-h-screen max-w-screen object-cover">
+      <video autoplay muted loop class="min-h-[100lvh] max-w-screen object-cover">
         <source src="../assets/bg.mp4" type="video/mp4" />
       </video>
     </div>
-    <div class="w-full min-h-screen flex flex-col justify-center bg-black text-white bg-opacity-50 absolute">
+    <div class="w-full min-h-[100lvh] flex flex-col justify-center bg-black text-white bg-opacity-50 absolute">
       <div class="flex flex-row justify-center">
         <div class="flex flex-col justify-center">
+          <BskyDialog/>
           <transition name="slide">
             <div v-if="loaded">
               <div class="w-fit md:max-w-[30vw] max-w-[70vw] text-white">
