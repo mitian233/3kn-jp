@@ -67,7 +67,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="first-screen">
+  <div class="first-screen overflow-hidden">
     <div class="flex flex-col md:flex-row md:justify-between">
       <div>
         <h1 class="text-4xl md:text-6xl font-bold hero-text">Hi</h1>
@@ -84,7 +84,7 @@ onMounted(() => {
         <div id="x" class="hero-link"><a href="https://x.com/mikan_chn" class="super-link">X/Twitter</a></div>
       </div>
     </div>
-    <div class="py-5 md:px-5 md:col-span-3 md:text-lg about-table" style="opacity: 0">
+    <div class="pt-5 pb-24 md:px-5 md:col-span-3 md:text-lg about-table" style="opacity: 0">
       <table class="w-full border-separate">
         <tbody>
         <tr>
@@ -135,7 +135,8 @@ onMounted(() => {
 }
 
 .first-screen {
-  @apply w-full min-h-[100svh] bg-black text-white flex flex-col pt-[40vh] px-[10vw] md:px-[20vw]
+  @apply w-full min-h-[100svh] text-white flex flex-col pt-[40vh] px-[10vw] md:px-[20vw];
+  background: url('/bg-path.svg');
 }
 
 .name {
