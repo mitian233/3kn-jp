@@ -42,22 +42,27 @@ onMounted(() => {
     repeatDelay: 1,
     ease: 'none'
   }), '+=0')
-  const tl = gsap.timeline()
-  tl.from('.type-wrapper', {y: 100, duration: 1, ease: 'power2.inOut'}, '+=0')
-  tl.to('.type-wrapper', {duration: 1, opacity: 1, ease: 'power2.inOut'}, '-=1')
-  tl.from('.about-table', {y: 100, duration: 1, ease: 'power2.inOut'}, '-=0.5')
-  tl.to('.about-table', {duration: 1, opacity: 1, ease: 'power2.inOut'}, '-=1')
-  tl.add(text, '1')
-  tl.add(cursor, '1')
   const linkTl = gsap.timeline()
   if (linksDiv.value) {
     for (let i = 0; i < linksDiv.value.children.length; i++) {
       const childId = linksDiv.value.children[i].id
-      linkTl.from("#" + childId, {y: 100, duration: 1, ease: 'power2.inOut'}, '-=0.7'),
-      linkTl.to('#' + childId, {duration: 1, opacity: 1, ease: 'power2.inOut'}, '-=1')
+      if(i===0){
+        linkTl.from("#" + childId, {y: 100, duration: 1, ease: 'power2.inOut'}, '+=0')
+        linkTl.to('#' + childId, {duration: 1, opacity: 1, ease: 'power2.inOut'}, '-=1')
+      } else {
+        linkTl.from("#" + childId, {y: 100, duration: 1, ease: 'power2.inOut'}, '-=0.7')
+        linkTl.to('#' + childId, {duration: 1, opacity: 1, ease: 'power2.inOut'}, '-=1')
+      }
     }
   }
-  tl.add(linkTl, '0')
+  const tl = gsap.timeline()
+  tl.from('.type-wrapper', {y: 100, duration: 1, ease: 'power2.inOut'}, '+=0')
+  tl.to('.type-wrapper', {duration: 1, opacity: 1, ease: 'power2.inOut'}, '-=1')
+  tl.add(linkTl, '-=0.2')
+  tl.from('.about-table', {y: 100, duration: 1, ease: 'power2.inOut'}, '-=1')
+  tl.to('.about-table', {duration: 1, opacity: 1, ease: 'power2.inOut'}, '-=1')
+  tl.add(text, '1')
+  tl.add(cursor, '1')
 })
 </script>
 
