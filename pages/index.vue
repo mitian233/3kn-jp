@@ -5,7 +5,6 @@ import {TextPlugin} from "gsap/TextPlugin"
 
 gsap.registerPlugin(TextPlugin)
 const linksDiv = ref<HTMLDivElement | null>(null);
-const typeWrapperRef = ref<HTMLDivElement | null>(null);
 
 useHead({
   title: 'Welcome - ' + siteConfig.title,
@@ -44,15 +43,18 @@ onMounted(() => {
     ease: 'none'
   }), '+=0')
   const tl = gsap.timeline()
-  tl.from('.type-wrapper', {y: 100, duration: 1, opacity: 0, ease: 'power2.inOut'}, '+=0')
-  tl.from('.about-table', {y: 100, duration: 1, opacity: 0, ease: 'power2.inOut'}, '-=0.5')
+  tl.from('.type-wrapper', {y: 100, duration: 1, ease: 'power2.inOut'}, '+=0')
+  tl.to('.type-wrapper', {duration: 1, opacity: 1, ease: 'power2.inOut'}, '-=1')
+  tl.from('.about-table', {y: 100, duration: 1, ease: 'power2.inOut'}, '-=0.5')
+  tl.to('.about-table', {duration: 1, opacity: 1, ease: 'power2.inOut'}, '-=1')
   tl.add(text, '1')
   tl.add(cursor, '1')
   const linkTl = gsap.timeline()
   if (linksDiv.value) {
     for (let i = 0; i < linksDiv.value.children.length; i++) {
       const childId = linksDiv.value.children[i].id
-      linkTl.from("#" + childId, {y: 100, duration: 1, opacity: 0, ease: 'power2.inOut'}, '-=0.7')
+      linkTl.from("#" + childId, {y: 100, duration: 1, ease: 'power2.inOut'}, '-=0.7'),
+      linkTl.to('#' + childId, {duration: 1, opacity: 1, ease: 'power2.inOut'}, '-=1')
     }
   }
   tl.add(linkTl, '0')
@@ -65,7 +67,7 @@ onMounted(() => {
       <div>
         <h1 class="text-4xl md:text-6xl font-bold hero-text">Hi</h1>
         <h2 class="text-4xl md:text-6xl font-bold hero-text">I'm <span class="name">Mikan</span></h2>
-        <div class="type-wrapper" ref="typeWrapperRef">
+        <div class="type-wrapper" style="opacity: 0;">
           <span class="type-text-front">A </span>
           <span class="type-text"></span>
           <div class="type-cursor"></div>
@@ -77,7 +79,7 @@ onMounted(() => {
         <div id="x" class="hero-link"><a href="https://x.com/mikan_chn" class="super-link">X/Twitter</a></div>
       </div>
     </div>
-    <div class="py-5 md:px-5 md:col-span-3 md:text-lg about-table">
+    <div class="py-5 md:px-5 md:col-span-3 md:text-lg about-table" style="opacity: 0">
       <table class="w-full border-separate">
         <tbody>
         <tr>
@@ -214,5 +216,8 @@ onMounted(() => {
   @apply text-right align-top;
   border-right-width: 10px;
   border-color: rgba(0, 0, 0, 0);
+}
+.hero-link{
+  opacity: 0;
 }
 </style>
