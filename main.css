@@ -35,13 +35,14 @@ body{
 }
 
 .super-link {
-    @apply cursor-pointer inline-block;
+    display: inline-block;
+    cursor: pointer;
     position: relative;
     z-index: 1;
     transition: all 0.2s ease;
 }
 .super-link::before {
-    z-index: 0;
+    z-index: -1;
     content: '';
     position: absolute;
     top: 50%;
@@ -49,7 +50,7 @@ body{
     bottom: 10%;
     left: -2%;
     background-color: #647eff;
-    opacity: 0.3;
+    opacity: 0.4;
     transition: all 0.2s ease;
 }
 .super-link:hover::before {
