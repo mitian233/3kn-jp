@@ -146,7 +146,8 @@ onMounted(() => {
 
 .first-screen {
   @apply w-full min-h-[100svh] text-white flex flex-col pt-[40vh] px-[10vw] md:px-[20vw];
-  background: url('/bg-path.svg');
+  @apply bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))];
+  /*background: url('/bg-path.svg');*/
 }
 
 .name {
