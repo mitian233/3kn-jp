@@ -1,20 +1,43 @@
 <script setup lang="ts">
+import {useMenuAnimationState} from "~/composables/dataStore";
 
+const router = useRouter()
+const showMenu = useShowMenuState()
+const showMenuIcon = useShowMenuButtonState()
+const menuAnimation = useMenuAnimationState()
+const pushRouter = (target: string) => {
+  if(target !== '/'){
+    showMenuIcon.value = true
+    menuAnimation.value = true
+    router.push(target)
+    router.isReady().then(()=>{
+      showMenu.value = false
+    })
+
+  } else {
+    showMenuIcon.value = false
+    menuAnimation.value = false
+    router.push(target)
+    router.isReady().then(()=>{
+      showMenu.value = true
+    })
+  }
+}
 </script>
 
 <template>
 <div class="h-[100dvh] w-full">
   <div class="h-full w-full flex flex-col p-8 font-['Poppins']">
     <div class="mb-8 flex flex-row">
-      <NuxtLink to="/">
+      <NuxtLink @click.prevent="pushRouter('/')" to="/">
         <h1 class="font-bold text-6xl mb-2 tracking-[.25em]">3KN</h1>
         <p class="font-bold tracking-[.25em]">mikan official website</p>
       </NuxtLink>
     </div>
-    <NuxtLink to="/contents" class="text-4xl hover:bg-black hover:text-white duration-100">
+    <NuxtLink @click.prevent="pushRouter('/contents')" to="/contents" class="text-4xl hover:bg-black hover:text-white duration-100">
       <p class="py-3 font-bold tracking-[.25em]">CONTENTS</p>
     </NuxtLink>
-    <NuxtLink to="/about" class="text-4xl hover:bg-black hover:text-white duration-100">
+    <NuxtLink @click.prevent="pushRouter('/about')" to="/about" class="text-4xl hover:bg-black hover:text-white duration-100">
       <p class="py-3 font-bold tracking-[.25em]">ABOUT</p>
     </NuxtLink>
     <div class="mt-8 flex flex-row gap-5">

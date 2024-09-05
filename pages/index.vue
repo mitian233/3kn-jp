@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import Home from "~/components/home.vue"
-import siteConfig from "~/site.config";
+import siteConfig from "~/site.config"
+const showMenu = useShowMenuState()
+const showMenuIcon = useShowMenuButtonState()
+const menuAnimation = useMenuAnimationState()
+const bgBlack = useBgBlackState()
+bgBlack.value = true
+showMenuIcon.value = false
+menuAnimation.value = false
+showMenu.value = true
 useHead({
   title: 'Welcome | ' + siteConfig.title,
   meta: [
@@ -21,7 +29,7 @@ useHead({
 </script>
 
 <template>
-<Home />
+<div />
 </template>
 
 <style scoped>

@@ -2,9 +2,11 @@
 import siteConfig from "~/site.config"
 import {gsap} from "gsap"
 import {TextPlugin} from "gsap/TextPlugin"
+const bgBlack = useBgBlackState()
+bgBlack.value = true
 
 gsap.registerPlugin(TextPlugin)
-const linksDiv = ref<HTMLDivElement | null>(null);
+const linksDiv = ref<HTMLDivElement | null>(null)
 
 useHead({
   title: 'Welcome | ' + siteConfig.title,
@@ -77,58 +79,59 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="first-screen overflow-hidden">
-    <div class="flex flex-col md:flex-row md:justify-between">
-      <div>
-        <h1 class="text-4xl md:text-6xl font-bold hero-text">Hi</h1>
-        <h2 class="text-4xl md:text-6xl font-bold hero-text">I'm <span class="name">Mikan</span></h2>
-        <div class="type-wrapper" style="opacity: 0;">
-          <span class="type-text-front">A </span>
-          <span class="type-text"></span>
-          <div class="type-cursor"></div>
+  <div>
+    <div class="first-screen overflow-hidden">
+      <div class="flex flex-col md:flex-row md:justify-between">
+        <div>
+          <h1 class="text-4xl md:text-6xl font-bold hero-text">Hi</h1>
+          <h2 class="text-4xl md:text-6xl font-bold hero-text">I'm <span class="name">Mikan</span></h2>
+          <div class="type-wrapper" style="opacity: 0;">
+            <span class="type-text-front">A </span>
+            <span class="type-text"></span>
+            <div class="type-cursor"></div>
+          </div>
+        </div>
+        <div class="flex flex-wrap flex-row gap-3 md:gap-0 md:flex-col md:pr-5" ref="linksDiv">
+          <div id="blog" class="hero-link"><a href="https://blog.bangdream.moe" class="super-link">Blog</a></div>
+          <div id="github" class="hero-link"><a href="https://github.com/mitian233" class="super-link">GitHub</a></div>
+          <div id="x" class="hero-link"><a href="https://x.com/mikan_chn" class="super-link">X/Twitter</a></div>
         </div>
       </div>
-      <div class="flex flex-wrap flex-row gap-3 md:gap-0 md:flex-col md:pr-5" ref="linksDiv">
-        <div id="blog" class="hero-link"><a href="https://blog.bangdream.moe" class="super-link">Blog</a></div>
-        <div id="github" class="hero-link"><a href="https://github.com/mitian233" class="super-link">GitHub</a></div>
-        <div id="x" class="hero-link"><a href="https://x.com/mikan_chn" class="super-link">X/Twitter</a></div>
+      <div class="pt-5 pb-24 md:px-5 md:col-span-3 md:text-lg about-table" style="opacity: 0">
+        <table class="w-full border-separate">
+          <tbody>
+          <tr>
+            <td class="left-cell">I am&nbsp;</td>
+            <td class="md:text-justify">
+              <p>
+                Active contributor of Astro theme
+                <a href="https://github.com/mitian233/astro-theme-akiba" class="super-link">Akiba</a>,
+                Diving-fish's
+                <a href="https://github.com/Diving-Fish/maimaidx-prober" class="super-link">maimaidx prober</a>
+                contributor and active member of <a href="https://astro.build/" class="super-link">Astro</a> community.
+                I love developing useful tools :)
+              </p>
+              <p></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="left-cell min-w-[4em]">About&nbsp;</td>
+            <td class="md:text-justify">
+              <p>
+                Third-rate University student. Who's coding skills is all self-taught. Excel at transforming design
+                concepts into responsive web applications. With a meticulous eye for detail and a dedication to clean
+                code, can actively contribute to open-source projects, pushing the boundaries of web development.
+                Advocating for accessibility and usability, who strive to create inclusive digital experiences. Committed
+                to collaboration, who stay updated on emerging technologies, continually enhancing whose skills to make
+                meaningful contributions to the dynamic field of front-end development.
+              </p>
+            </td>
+          </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-    <div class="pt-5 pb-24 md:px-5 md:col-span-3 md:text-lg about-table" style="opacity: 0">
-      <table class="w-full border-separate">
-        <tbody>
-        <tr>
-          <td class="left-cell">I am&nbsp;</td>
-          <td class="md:text-justify">
-            <p>
-              Active contributor of Astro theme
-              <a href="https://github.com/mitian233/astro-theme-akiba" class="super-link">Akiba</a>,
-              Diving-fish's
-              <a href="https://github.com/Diving-Fish/maimaidx-prober" class="super-link">maimaidx prober</a>
-              contributor and active member of <a href="https://astro.build/" class="super-link">Astro</a> community.
-              I love developing useful tools :)
-            </p>
-            <p></p>
-          </td>
-        </tr>
-        <tr>
-          <td class="left-cell min-w-[4em]">About&nbsp;</td>
-          <td class="md:text-justify">
-            <p>
-              Third-rate University student. Who's coding skills is all self-taught. Excel at transforming design
-              concepts into responsive web applications. With a meticulous eye for detail and a dedication to clean
-              code, can actively contribute to open-source projects, pushing the boundaries of web development.
-              Advocating for accessibility and usability, who strive to create inclusive digital experiences. Committed
-              to collaboration, who stay updated on emerging technologies, continually enhancing whose skills to make
-              meaningful contributions to the dynamic field of front-end development.
-            </p>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
   </div>
-  <Menu bg-black />
 </template>
 
 <style scoped>
