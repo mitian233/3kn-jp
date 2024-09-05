@@ -1,5 +1,5 @@
 const siteConfig = {
-    title: '3kn.jp',
+    title: 'mikan official website',
 }
 
 export default siteConfig
