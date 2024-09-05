@@ -10,12 +10,9 @@ showMenuIcon.value = false
 menuAnimation.value = false
 showMenu.value = true
 useHead({
-  title: 'Welcome | ' + siteConfig.title,
+  title: 'Home | ' + siteConfig.title,
   meta: [
-    {name: 'theme-color', content: '#000000'},
-    {name: 'apple-mobile-web-app-capable', content: 'yes'},
-    {name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent'},
-    {name: 'og:title', content: 'Welcome - ' + siteConfig.title},
+    {name: 'og:title', content: 'Home | ' + siteConfig.title},
     {name: 'og:description', content: 'Mikan\'s Homepage'},
     {name: 'og:image', content: 'https://3kn.jp/ogp.png'},
     {name: 'og:url', content: 'https://3kn.jp/'},

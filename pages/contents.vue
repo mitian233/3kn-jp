@@ -1,4 +1,20 @@
 <script setup lang="ts">
+import siteConfig from "~/site.config";
+
+useHead({
+  title: 'Contents | ' + siteConfig.title,
+  meta: [
+    {name: 'og:title', content: 'Contents | ' + siteConfig.title},
+    {name: 'og:description', content: 'Mikan\'s Homepage'},
+    {name: 'og:image', content: 'https://3kn.jp/ogp.png'},
+    {name: 'og:url', content: 'https://3kn.jp/'},
+    {name: 'twitter:card', content: 'summary_large_image'},
+    {name: 'twitter:title', content: '3kn.jp'},
+    {name: 'twitter:description', content: 'Mikan\'s Homepage'},
+    {name: 'twitter:image', content: 'https://3kn.jp/ogp.png'},
+    {name: 'twitter:url', content: 'https://3kn.jp/'}
+  ]
+})
 const bgBlack = useBgBlackState()
 bgBlack.value = false
 const building = false
