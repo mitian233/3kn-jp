@@ -2,3 +2,4 @@ export const useShowMenuButtonState = () => useState('showMenuButton', () => tru
 export const useShowMenuState = () => useState('showMenu', () => false)
 export const useMenuAnimationState = () => useState('menuAnimation', () => true)
 export const useBgBlackState = () => useState('bgBlack', () => false)
+// export const useNavigationAnimationState = () => useState('navigationAnimation', () => false)

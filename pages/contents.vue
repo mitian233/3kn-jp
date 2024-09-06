@@ -5,14 +5,6 @@ useHead({
   title: 'Contents | ' + siteConfig.title,
   meta: [
     {name: 'og:title', content: 'Contents | ' + siteConfig.title},
-    {name: 'og:description', content: 'Mikan\'s Homepage'},
-    {name: 'og:image', content: 'https://3kn.jp/ogp.png'},
-    {name: 'og:url', content: 'https://3kn.jp/'},
-    {name: 'twitter:card', content: 'summary_large_image'},
-    {name: 'twitter:title', content: '3kn.jp'},
-    {name: 'twitter:description', content: 'Mikan\'s Homepage'},
-    {name: 'twitter:image', content: 'https://3kn.jp/ogp.png'},
-    {name: 'twitter:url', content: 'https://3kn.jp/'}
   ]
 })
 const bgBlack = useBgBlackState()
@@ -83,9 +75,9 @@ const projects = [
     <div v-else class="p-4 grid grid-cols-1 md:grid-cols-3 gap-4 contents-container">
       <div v-for="item in projects">
         <a class="group relative h-full w-full" :href="item.link" target="_blank">
-          <img v-if="item.img" :src="item.img" class="object-cover w-full h-full group-hover:scale-125 duration-300" />
+          <img v-if="item.img" :src="item.img" class="object-cover w-full h-full group-hover:scale-125 duration-300"/>
           <div class="absolute left-0 top-0 right-0 bottom-0 flex justify-center items-center">
-            <p>{{item.title}}</p>
+            <p>{{ item.title }}</p>
           </div>
         </a>
       </div>
@@ -99,6 +91,7 @@ const projects = [
   aspect-ratio: 2/1;
   overflow: hidden;
 }
+
 @media (min-width: 768px) {
   .contents-container div {
     aspect-ratio: 16/9;
