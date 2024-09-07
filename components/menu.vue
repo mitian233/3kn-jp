@@ -33,7 +33,7 @@ watch(()=>route.path, ()=>{
 
 <template>
   <Transition :name="(menuAnimation ? 'slide' : undefined)">
-    <div v-show="showMenu" class="fixed top-0 right-0 left-0 bg-white">
+    <div v-show="showMenu" class="fixed top-0 right-0 left-0 bg-white overflow-y-auto">
       <Home :class="[(subAniPlay ? 'translate-y-0' : '-translate-y-20'), 'duration-200 ease']"/>
     </div>
   </Transition>

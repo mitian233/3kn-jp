@@ -5,7 +5,6 @@ const showMenu = useShowMenuState()
 const showMenuIcon = useShowMenuButtonState()
 const menuAnimation = useMenuAnimationState()
 showMenuIcon.value = false
-// menuAnimation.value = false
 showMenu.value = true
 useHead({
   title: 'Home | ' + siteConfig.title,

@@ -46,4 +46,18 @@ useHead({
     @apply opacity-50;
   }
 }
+@media (max-width: 768px) {
+  .about-container {
+    p {
+      letter-spacing: .15em;
+    }
+
+    h1 {
+      letter-spacing: .1em;
+    }
+    a {
+      letter-spacing: normal;
+    }
+  }
+}
 </style>
