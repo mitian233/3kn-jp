@@ -76,7 +76,7 @@ const generateLink = (link: string) => '/redirect?url=' + encodeURIComponent(lin
     </div>
     <div v-else class="p-4 grid grid-cols-1 md:grid-cols-3 gap-4 contents-container">
       <div v-for="item in projects">
-        <a class="group relative h-full w-full" :href="generateLink(item.link)" target="_blank">
+        <a class="group relative h-full w-full" :href="item.link" target="_blank">
           <img v-if="item.img" :src="item.img" class="object-cover w-full h-full group-hover:scale-125 duration-300"/>
           <div class="absolute left-0 top-0 right-0 bottom-0 flex justify-center items-center">
             <p>{{ item.title }}</p>
