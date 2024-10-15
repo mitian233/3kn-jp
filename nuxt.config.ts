@@ -43,7 +43,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["nuxt-gtag"],
+  modules: ["nuxt-gtag", "@nuxt/content", 'dayjs-nuxt', "@nuxt/image"],
   gtag: {
     id: 'G-3JH0BQ2RSZ'
   }

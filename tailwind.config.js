@@ -1,3 +1,4 @@
+import defaultTheme from 'tailwindcss/defaultTheme';
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -11,8 +12,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
-      }
+        sans: ["Inter", "Noto Sans JP", ...defaultTheme.fontFamily.sans],
+        serif: ['Newsreader', 'Noto Serif JP', ...defaultTheme.fontFamily.serif],
+        mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono]
+      },
     },
   },
   plugins: [],

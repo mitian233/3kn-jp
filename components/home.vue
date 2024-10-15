@@ -42,13 +42,17 @@ const isCurrentPath = (path: string) => route.path === path
           <p class="font-bold tracking-[.25em]">mikan official website</p>
         </div>
       </div>
-      <NuxtLink @click.prevent="pushRouter('/contents')" to="/contents"
-                :class="['text-4xl hover:bg-black hover:text-white duration-100', (isCurrentPath('/contents') && 'cursor-not-allowed')]">
-        <p :class="['py-3 font-bold tracking-[.25em]', (isCurrentPath('/contents') && 'line-through')]">CONTENTS</p>
-      </NuxtLink>
       <NuxtLink @click.prevent="pushRouter('/about')" to="/about"
                 :class="['text-4xl hover:bg-black hover:text-white duration-100', (isCurrentPath('/about') && 'cursor-not-allowed')]">
         <p :class="['py-3 font-bold tracking-[.25em]', (isCurrentPath('/about') && 'line-through')]">ABOUT</p>
+      </NuxtLink>
+      <NuxtLink @click.prevent="pushRouter('/blog')" to="/blog"
+                :class="['text-4xl hover:bg-black hover:text-white duration-100', (isCurrentPath('/about') && 'cursor-not-allowed')]">
+        <p :class="['py-3 font-bold tracking-[.25em]', (isCurrentPath('/blog') && 'line-through')]">BLOG</p>
+      </NuxtLink>
+      <NuxtLink @click.prevent="pushRouter('/contents')" to="/contents"
+                :class="['text-4xl hover:bg-black hover:text-white duration-100', (isCurrentPath('/contents') && 'cursor-not-allowed')]">
+        <p :class="['py-3 font-bold tracking-[.25em]', (isCurrentPath('/contents') && 'line-through')]">CONTENTS</p>
       </NuxtLink>
       <Links/>
     </div>
