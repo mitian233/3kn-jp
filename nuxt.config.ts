@@ -44,7 +44,10 @@ export default defineNuxtConfig({
   },
 
   modules: ["nuxt-gtag"],
+
   gtag: {
     id: 'G-3JH0BQ2RSZ'
-  }
+  },
+
+  compatibilityDate: '2025-01-15'
 })
