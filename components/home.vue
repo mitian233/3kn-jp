@@ -26,6 +26,11 @@ const pushRouter = (target: string) => {
     }
 };
 
+const menuLinks = [
+    { title: "CONTENTS", path: "/contents" },
+    { title: "ABOUT", path: "/about" },
+];
+
 const isCurrentPath = (path: string) => route.path === path;
 </script>
 
@@ -55,37 +60,25 @@ const isCurrentPath = (path: string) => route.path === path;
                 </div>
             </div>
             <NuxtLink
-                to="/contents"
+                v-for="(item, index) in menuLinks"
+                :key="index"
+                :to="item.path"
                 :class="[
                     'text-4xl hover:bg-black hover:text-white duration-100',
-                    isCurrentPath('/contents') && 'cursor-not-allowed',
+                    isCurrentPath(item.path) &&
+                        'bg-black text-white cursor-not-allowed',
                 ]"
-                @click.prevent="pushRouter('/contents')"
+                @click.prevent="
+                    isCurrentPath(item.path) || pushRouter(item.path)
+                "
             >
                 <p
                     :class="[
                         'py-3 font-bold tracking-[.25em]',
-                        isCurrentPath('/contents') && 'line-through',
+                        isCurrentPath(item.path) && 'line-through',
                     ]"
                 >
-                    CONTENTS
-                </p>
-            </NuxtLink>
-            <NuxtLink
-                to="/about"
-                :class="[
-                    'text-4xl hover:bg-black hover:text-white duration-100',
-                    isCurrentPath('/about') && 'cursor-not-allowed',
-                ]"
-                @click.prevent="pushRouter('/about')"
-            >
-                <p
-                    :class="[
-                        'py-3 font-bold tracking-[.25em]',
-                        isCurrentPath('/about') && 'line-through',
-                    ]"
-                >
-                    ABOUT
+                    {{ item.title.toUpperCase() }}
                 </p>
             </NuxtLink>
             <Links />

@@ -3,7 +3,10 @@ import siteConfig from "./site.config";
 import type { NuxtError } from "#app";
 const router = useRouter();
 const props = defineProps({
-    error: Object as () => NuxtError,
+    error: {
+      type: Object as PropType<NuxtError>,
+      default: null,
+    },
 });
 useHead({
     title:

@@ -1,23 +1,23 @@
 <script setup lang="ts">
-const router = useRouter();
 const PageRef = ref<HTMLDivElement | null>(null);
 const beforeEnter = () => PageRef.value?.classList.add("overflow-hidden");
 const afterLeave = () => PageRef.value?.classList.remove("overflow-hidden");
 </script>
 
 <template>
-    <div ref="PageRef" class="h-[100svh] w-full relative">
-        <NuxtPage
-            :transition="{
-                name: 'page',
-                onBeforeEnter: beforeEnter,
-                onAfterLeave: afterLeave,
-                onLeaveCancelled: afterLeave,
-            }"
-            class="relative"
-        />
-    </div>
-    <Menu />
+    <NuxtLayout>
+        <div ref="PageRef" class="h-[100svh] w-full relative">
+            <NuxtPage
+                :transition="{
+                    name: 'page',
+                    onBeforeEnter: beforeEnter,
+                    onAfterLeave: afterLeave,
+                    onLeaveCancelled: afterLeave,
+                }"
+                class="relative"
+            />
+        </div>
+    </NuxtLayout>
 </template>
 
 <style>

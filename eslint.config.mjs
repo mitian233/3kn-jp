@@ -7,7 +7,7 @@ export default withNuxt(
     {
         rules: {
             "vue/html-indent": ["error", 4],
-            "vue/multi-word-component-names": "warn",
+            "vue/multi-word-component-names": "off",
             "vue/max-attributes-per-line": [
                 "error",
                 {

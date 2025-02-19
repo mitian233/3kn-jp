@@ -12,7 +12,7 @@ const projects = [
     {
         img: "/cover/tks-suki.png",
         title: "まいにちつーちゃん",
-        link: "https://tsukushi.bangdream.moe/",
+        link: "https://tks.3kn.jp/",
     },
     {
         img: "/cover/twitter-transparent-avatar.png",
@@ -27,7 +27,7 @@ const projects = [
     {
         img: "/cover/chunithm-cn-tools.png",
         title: "CHUNITHM CN Tools",
-        link: "https://chunithm.bangdream.moe/",
+        link: "https://chunithm.anontokyo.com/",
     },
     {
         img: "/cover/mygo-fansite.png",
@@ -59,10 +59,17 @@ const projects = [
         title: "Poppin'Party Lyrics Generator",
         link: "https://popipa.bangdream.moe/",
     },
+    {
+        img: "/cover/cp-anontokyo-com.png",
+        title: "MyGO x AveMujica CP Generator",
+        link: "https://cp.anontokyo.com/",
+    },
+    {
+        img: "/cover/card-anontokyo-com.png",
+        title: "BanG Dream! Members' Card style image generator",
+        link: "https://card.anontokyo.com/",
+    },
 ];
-
-const generateLink = (link: string) =>
-    "/redirect?url=" + encodeURIComponent(link);
 </script>
 
 <template>

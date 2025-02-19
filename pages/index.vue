@@ -3,7 +3,6 @@ import siteConfig from "~/site.config";
 
 const showMenu = useShowMenuState();
 const showMenuIcon = useShowMenuButtonState();
-const menuAnimation = useMenuAnimationState();
 showMenuIcon.value = false;
 showMenu.value = true;
 useHead({
