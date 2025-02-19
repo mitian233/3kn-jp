@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 div,
-body{
+body {
     &::-webkit-scrollbar {
         width: 0.5em;
     }
@@ -44,7 +44,7 @@ body{
 }
 .super-link::before {
     z-index: -1;
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     right: -2%;
