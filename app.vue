@@ -2,6 +2,11 @@
 const PageRef = ref<HTMLDivElement | null>(null);
 const beforeEnter = () => PageRef.value?.classList.add("overflow-hidden");
 const afterLeave = () => PageRef.value?.classList.remove("overflow-hidden");
+
+onMounted(() => {
+  console.log(`%c3kn%c.jp`, "color: black;font-size: 20px;background-color: white;", "color: white;font-size: 20px;background-color: #ff8899;");
+  console.log(`点击链接加入群聊【小猫你可以吃芝士汉堡】：https://qm.qq.com/q/ZIXmUrY6oa`);
+})
 </script>
 
 <template>
