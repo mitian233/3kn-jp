@@ -4,59 +4,59 @@
 
 div,
 body {
-    &::-webkit-scrollbar {
-        width: 0.5em;
-    }
-    &::-webkit-scrollbar-track {
-        background: transparent;
-    }
-    &::-webkit-scrollbar-thumb {
-        background: rgba(144, 147, 153, 0.3);
-        cursor: pointer;
-        border-radius: 0;
-    }
-    &::-webkit-scrollbar-thumb:hover {
-        background: rgba(144, 147, 153, 0.5);
-    }
-    &::-webkit-scrollbar-thumb:active {
-        background: rgba(144, 147, 153, 0.7);
-    }
-    &::-webkit-scrollbar-thumb:vertical {
-        border-radius: 0;
-    }
-    &::-webkit-scrollbar-thumb:horizontal {
-        border-radius: 0;
-    }
-    &::-webkit-scrollbar-corner {
-        background: none;
-    }
-    &::-webkit-resizer {
-        background: none;
-    }
+  &::-webkit-scrollbar {
+    width: 0.5em;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(144, 147, 153, 0.3);
+    cursor: pointer;
+    border-radius: 0;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(144, 147, 153, 0.5);
+  }
+  &::-webkit-scrollbar-thumb:active {
+    background: rgba(144, 147, 153, 0.7);
+  }
+  &::-webkit-scrollbar-thumb:vertical {
+    border-radius: 0;
+  }
+  &::-webkit-scrollbar-thumb:horizontal {
+    border-radius: 0;
+  }
+  &::-webkit-scrollbar-corner {
+    background: none;
+  }
+  &::-webkit-resizer {
+    background: none;
+  }
 }
 
 .super-link {
-    display: inline-block;
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-    transition: all 0.2s ease;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  transition: all 0.2s ease;
 }
 .super-link::before {
-    z-index: -1;
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: -2%;
-    bottom: 10%;
-    left: -2%;
-    background-color: #647eff;
-    opacity: 0.4;
-    transition: all 0.2s ease;
+  z-index: -1;
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -2%;
+  bottom: 10%;
+  left: -2%;
+  background-color: #647eff;
+  opacity: 0.4;
+  transition: all 0.2s ease;
 }
 .super-link:hover::before {
-    top: 83%;
-    opacity: 1;
-    right: 0;
-    left: 0;
+  top: 83%;
+  opacity: 1;
+  right: 0;
+  left: 0;
 }

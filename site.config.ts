@@ -1,5 +1,5 @@
 const siteConfig = {
-    title: "mikan official website",
+  title: "mikan official website",
 };
 
 export default siteConfig;
