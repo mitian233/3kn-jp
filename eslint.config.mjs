@@ -23,6 +23,7 @@ export default withNuxt(
       "vue/multiline-html-element-content-newline": "off",
       "vue/component-definition-name-casing": ["error", "PascalCase"],
       "vue/no-v-html": "off",
+      "vue/no-multiple-template-root": "off",
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/explicit-module-boundary-types": "off",
       "@typescript-eslint/no-unused-vars": "warn",

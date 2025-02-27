@@ -5,13 +5,20 @@ const beforeEnter = () => PageRef.value?.classList.add("overflow-hidden");
 const afterLeave = () => PageRef.value?.classList.remove("overflow-hidden");
 
 onMounted(() => {
-  console.log(`%c3kn%c.jp`, "color: black; font-size: 20px; background-color: white;", "color: white; font-size: 20px; background-color: #ff8899;");
-  console.log("%cUse Mobile QQ to scan the QR code to join my QQ group", "font-size: 15px;");
+  console.log(
+    `%c3kn%c.jp`,
+    "color: black; font-size: 20px; background-color: white;",
+    "color: white; font-size: 20px; background-color: #ff8899;",
+  );
+  console.log(
+    "%cUse Mobile QQ to scan the QR code to join my QQ group",
+    "font-size: 15px;",
+  );
   // qrcode.generate("https://qm.qq.com/q/ZIXmUrY6oa", { small: true }, (qrcode) => {
   //   console.log(`%c${qrcode}`, "color: #ff8899; font-size: 20px; background-color: white;");
   // });
   console.log(
-`%c▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+    `%c▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 █ ▄▄▄▄▄ █ ▄▄█▀▀ █ █ ▄▄▄▄▄ █
 █ █   █ ██▄█▀█ ▀ ██ █   █ █
 █ █▄▄▄█ █ ▀ ██▄██▀█ █▄▄▄█ █
@@ -24,9 +31,13 @@ onMounted(() => {
 █ ▄▄▄▄▄ █▀█▄▄▀▄ █ █▄█ ███ █
 █ █   █ ██ ▄▄▀ ▀ ▄ ▄▄ █▀▀██
 █ █▄▄▄█ █ ▄█▄▀▄▄  ██  ▄█▄▄█
-█▄▄▄▄▄▄▄█▄███▄███▄█▄██▄██▄█`  , "color: #ff8899; font-size: 20px; background-color: white;")
-  console.log('If you can\'t scan the QR code, click the link following to continue: https://qm.qq.com/q/ZIXmUrY6oa');
-})
+█▄▄▄▄▄▄▄█▄███▄███▄█▄██▄██▄█`,
+    "color: #ff8899; font-size: 20px; background-color: white;",
+  );
+  console.log(
+    "If you can't scan the QR code, click the link following to continue: https://qm.qq.com/q/ZIXmUrY6oa",
+  );
+});
 </script>
 
 <template>

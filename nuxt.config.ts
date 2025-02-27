@@ -3,6 +3,8 @@ import siteConfig from "./site.config";
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
+  content: {},
+
   app: {
     head: {
       htmlAttrs: {
@@ -42,7 +44,10 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ["~/main.css"],
+  css: [
+      "~/main.css",
+    "@fancyapps/ui/dist/fancybox/fancybox.css",
+  ],
 
   postcss: {
     plugins: {
@@ -51,7 +56,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["nuxt-gtag", "@nuxt/eslint"],
+  modules: ["@nuxt/content", "nuxt-gtag", "@nuxt/eslint"],
 
   gtag: {
     id: "G-3JH0BQ2RSZ",

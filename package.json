@@ -13,6 +13,8 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@fancyapps/ui": "^5.0.36",
+    "@nuxt/content": "^3.2.2",
     "@nuxt/eslint": "^1.1.0",
     "@types/qrcode-terminal": "^0.12.2",
     "eslint": "^9.20.1",

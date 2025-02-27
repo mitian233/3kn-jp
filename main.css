@@ -60,3 +60,15 @@ body {
   right: 0;
   left: 0;
 }
+
+.contents-container div {
+  width: 100%;
+  aspect-ratio: 2/1;
+  overflow: hidden;
+}
+
+.prose {
+  p {
+    margin-bottom: 1rem;
+  }
+}

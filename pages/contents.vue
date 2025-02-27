@@ -107,11 +107,6 @@ const projects = [
 </template>
 
 <style scoped>
-.contents-container div {
-  width: 100%;
-  aspect-ratio: 2/1;
-  overflow: hidden;
-}
 
 @media (min-width: 768px) {
   .contents-container div {

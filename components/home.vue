@@ -5,11 +5,11 @@ const showMenu = useShowMenuState();
 const showMenuIcon = useShowMenuButtonState();
 const menuAnimation = useMenuAnimationState();
 const pushRouter = (target: string) => {
-  if (isCurrentPath(target)) {
-    showMenu.value = false;
-    return;
-  }
   if (target !== "/") {
+    if (isCurrentPath(target)) {
+      showMenu.value = false;
+      return;
+    }
     showMenuIcon.value = true;
     menuAnimation.value = true;
     router.push(target);
@@ -28,10 +28,12 @@ const pushRouter = (target: string) => {
 
 const menuLinks = [
   { title: "CONTENTS", path: "/contents" },
+  { title: "PHOTOGRAPH", path: "/photograph" },
   { title: "ABOUT", path: "/about" },
 ];
 
-const isCurrentPath = (path: string) => route.path === path;
+const isCurrentPath = (path: string) => route.path.indexOf(path) !== -1;
+const isHome = computed(() => route.path === "/");
 </script>
 
 <template>
@@ -39,7 +41,7 @@ const isCurrentPath = (path: string) => route.path === path;
     <div class="h-full w-full flex flex-col pt-8 pl-8 font-['Poppins']">
       <div class="mb-8 flex flex-row">
         <NuxtLink
-          v-if="!isCurrentPath('/')"
+          v-if="!isHome"
           to="/"
           @click.prevent="pushRouter('/')"
         >
