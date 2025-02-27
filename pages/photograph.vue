@@ -46,7 +46,7 @@ useHead({
 .slide-enter-from {
   opacity: 0;
   /*transform: translateY(100%);*/
-  transform: translateY(25%);
+  transform: translateY(5%);
   /*transform-origin: 50% 50%;*/
   position: absolute;
 }
@@ -54,7 +54,7 @@ useHead({
 .slide-leave-to {
   opacity: 0;
   /*filter: blur(1rem);*/
-  transform: translateY(25%);
+  /*transform: translateY(5%);*/
   /*transform-origin: 50% 50%;*/
   position: absolute;
 }
