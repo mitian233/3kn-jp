@@ -14,7 +14,7 @@ useHead({
 </script>
 
 <template>
-  <div class="min-h-[100svh] flex flex-col">
+  <div class="w-full flex flex-col">
     <div class="font-['Poppins']">
       <div class="pt-4 pl-4 flex flex-row items-center cursor-pointer">
         <button
@@ -23,7 +23,7 @@ useHead({
         </button>
       </div>
     </div>
-    <div ref="PageRef" class="min-h-[100svh] w-full relative">
+    <div ref="PageRef" class="min-h-[100svh] relative">
       <NuxtPage
           :transition="{
         name: 'slide',

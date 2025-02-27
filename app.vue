@@ -41,7 +41,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="PageRef" class="h-[100svh] w-full relative">
+  <div ref="PageRef" class="min-h-[100svh] w-full relative">
     <NuxtPage
       :transition="{
         name: 'page',
