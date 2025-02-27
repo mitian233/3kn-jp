@@ -30,7 +30,7 @@
         />
       </svg>
     </a>
-    <a href="https://blog.bangdream.moe" target="_blank">
+    <a href="https://blog.anontokyo.com" target="_blank">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="30"
