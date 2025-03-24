@@ -45,11 +45,11 @@ const isHome = computed(() => route.path === "/");
           to="/"
           @click.prevent="pushRouter('/')"
         >
-          <h1 class="font-bold text-6xl mb-2 tracking-[.25em]">3KN</h1>
+          <h1 class="font-bold text-4xl md:text-6xl mb-2 tracking-[.25em]">3KN</h1>
           <p class="font-bold tracking-[.25em]">mikan official website</p>
         </NuxtLink>
         <div v-else>
-          <h1 class="font-bold text-6xl mb-2 tracking-[.25em]">3KN</h1>
+          <h1 class="font-bold text-4xl md:text-6xl mb-2 tracking-[.25em]">3KN</h1>
           <p class="font-bold tracking-[.25em]">mikan official website</p>
         </div>
       </div>
@@ -58,7 +58,7 @@ const isHome = computed(() => route.path === "/");
         :key="index"
         :to="item.path"
         :class="[
-          'text-4xl hover:bg-black hover:text-white duration-100',
+          'text-3xl md:text-5xl hover:bg-black hover:text-white duration-100',
           isCurrentPath(item.path) && 'bg-black text-white cursor-not-allowed',
         ]"
         @click.prevent="isCurrentPath(item.path) || pushRouter(item.path)"
