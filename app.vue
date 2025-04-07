@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// import * as qrcode from 'qrcode-terminal';
 import {useLoadingIndicatorState} from "~/composables/dataStore";
 import pulseSvg from '@/assets/pulse.svg';
 
@@ -8,15 +7,15 @@ const beforeEnter = () => PageRef.value?.classList.add("overflow-hidden");
 const afterLeave = () => PageRef.value?.classList.remove("overflow-hidden");
 const showLoadingIndicator = useLoadingIndicatorState();
 
-let startTime = 0;
+// let startTime = 0;
 useRuntimeHook('page:start', () => {
   showLoadingIndicator.value = true;
-  console.debug('Page started loading!')
-  startTime = new Date().getTime();
+  // console.debug('Page started loading!')
+  // startTime = new Date().getTime();
 });
 useRuntimeHook('page:finish', () => {
   showLoadingIndicator.value = false;
-  console.debug('Page finished loading!', (new Date().getTime() - startTime));
+  // console.debug('Page finished loading!', (new Date().getTime() - startTime));
 });
 
 onMounted(() => {
