@@ -15,11 +15,16 @@ if (route.path === "/") {
 
 watch(
   () => showMenu.value,
-  async (newVal, oldValue) => {
+  (newVal, oldValue) => {
     if (newVal === true && oldValue === false) {
-      await new Promise((resolve) => setTimeout(resolve, 1));
+      requestAnimationFrame(() => {
+        subAniPlay.value = newVal;
+      });
+    } else {
+      requestAnimationFrame(() => {
+        subAniPlay.value = newVal;
+      });
     }
-    subAniPlay.value = showMenu.value;
   },
 );
 
@@ -28,13 +33,18 @@ watch(
   () => {
     if (route.path !== "/") {
       showMenuButton.value = true;
-      menuAnimation.value = true;
     } else {
       showMenuButton.value = false;
-      // menuAnimation.value = false
     }
   },
 );
+onBeforeRouteUpdate((route)=> {
+  if (route.path !== "/") {
+    menuAnimation.value = true;
+  } else {
+    menuAnimation.value = false;
+  }
+})
 </script>
 
 <template>
@@ -44,10 +54,8 @@ watch(
       class="fixed top-0 right-0 left-0 bg-white overflow-y-auto"
     >
       <Home
-        :class="[
-          subAniPlay ? 'translate-y-0' : '-translate-y-20',
-          'duration-200 ease',
-        ]"
+        :class="[(subAniPlay || '-translate-y-20')]"
+        style="transition-duration: 200ms; transition-timing-function: var(--default-timing-function); transition-property: all;"
       />
     </div>
   </Transition>
@@ -98,7 +106,7 @@ watch(
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: all 200ms ease;
+  transition: all 200ms var(--default-timing-function);
 }
 
 .fade-enter-from,
@@ -107,13 +115,13 @@ watch(
 }
 
 .slide-enter-active {
-  transition: all 200ms ease;
+  transition: all 200ms var(--default-timing-function);
   overflow: hidden;
   height: 100dvh;
 }
 
 .slide-leave-active {
-  transition: all 200ms ease;
+  transition: all 200ms var(--default-timing-function);
   height: 100dvh;
 }
 

@@ -16,7 +16,7 @@ useHead({
 <template>
   <div class="w-full flex flex-col">
     <div class="font-['Poppins']">
-      <div class="pt-4 pl-4 flex flex-row items-center cursor-pointer">
+      <div class="pt-4 pl-4 flex flex-row items-center">
         <button
             :class="['text-4xl font-bold tracking-[.25em] cursor-default duration-100', useSuperLink && 'cursor-pointer bg-black text-white hover:bg-white hover:text-black']"
             @click="useSuperLink && useRouter().push('/photograph')">PHOTOGRAPH

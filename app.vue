@@ -1,8 +1,23 @@
 <script setup lang="ts">
 // import * as qrcode from 'qrcode-terminal';
+import {useLoadingIndicatorState} from "~/composables/dataStore";
+import pulseSvg from '@/assets/pulse.svg';
+
 const PageRef = ref<HTMLDivElement | null>(null);
 const beforeEnter = () => PageRef.value?.classList.add("overflow-hidden");
 const afterLeave = () => PageRef.value?.classList.remove("overflow-hidden");
+const showLoadingIndicator = useLoadingIndicatorState();
+
+let startTime = 0;
+useRuntimeHook('page:start', () => {
+  showLoadingIndicator.value = true;
+  console.debug('Page started loading!')
+  startTime = new Date().getTime();
+});
+useRuntimeHook('page:finish', () => {
+  showLoadingIndicator.value = false;
+  console.debug('Page finished loading!', (new Date().getTime() - startTime));
+});
 
 onMounted(() => {
   console.log(
@@ -51,6 +66,11 @@ onMounted(() => {
       }"
       class="relative"
     />
+    <Transition name="page">
+      <div v-if="showLoadingIndicator" class="absolute top-0 bottom-0 left-0 right-0 flex justify-center items-center">
+        <img :src="pulseSvg" style="height: 50px; width: 50px;" />
+      </div>
+    </Transition>
   </div>
   <Menu />
 </template>
