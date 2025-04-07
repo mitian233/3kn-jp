@@ -65,7 +65,7 @@ onMounted(() => {
       }"
       class="relative"
     />
-    <Transition name="page">
+    <Transition name="pulse">
       <div v-if="showLoadingIndicator" class="absolute top-0 bottom-0 left-0 right-0 flex justify-center items-center">
         <img :src="pulseSvg" style="height: 50px; width: 50px;" />
       </div>
@@ -81,20 +81,27 @@ onMounted(() => {
   overflow: hidden;
   transition: all 1000ms;
 }
-
 .page-enter-from {
   opacity: 0;
-  /*transform: translateY(100%);*/
   scale: 0.5;
   transform-origin: 50% 50%;
   position: absolute;
 }
-
 .page-leave-to {
   opacity: 0;
-  /*filter: blur(1rem);
-transform: translateY(-100%);*/
   scale: 1.5;
+  transform-origin: 50% 50%;
+  position: absolute;
+}
+
+.pulse-enter-active,
+.pulse-leave-active {
+  opacity: 1;
+  transition: opacity 500ms;
+}
+.pulse-enter-from,
+.pulse-leave-to {
+  opacity: 0;
   transform-origin: 50% 50%;
   position: absolute;
 }
