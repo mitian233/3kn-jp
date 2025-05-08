@@ -5,6 +5,8 @@ cover: https://img.meituan.net/csc/5f5b3a01bef3bf67552b16d16634b9fd4546906.jpg
 description: Slow down and listen to the memories that shape our hearts.
 ---
 
+Shot on FUJIFILM X-T3 with Sigma 56mm F1.4 DC DN
+
 ![undefined](https://img.meituan.net/csc/9e4eddac600d341552c1c72489e799013398762.jpg)
 
 ![undefined](https://img.meituan.net/csc/bd0f304e6a8df1cfa8afb65268a40b912658935.jpg)
