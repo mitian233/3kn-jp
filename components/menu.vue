@@ -38,13 +38,13 @@ watch(
     }
   },
 );
-onBeforeRouteUpdate((route)=> {
+onBeforeRouteUpdate((route) => {
   if (route.path !== "/") {
     menuAnimation.value = true;
   } else {
     menuAnimation.value = false;
   }
-})
+});
 </script>
 
 <template>
@@ -54,8 +54,12 @@ onBeforeRouteUpdate((route)=> {
       class="fixed top-0 right-0 left-0 bg-white overflow-y-auto"
     >
       <Home
-        :class="[(subAniPlay || '-translate-y-20')]"
-        style="transition-duration: 200ms; transition-timing-function: var(--default-timing-function); transition-property: all;"
+        :class="[subAniPlay || '-translate-y-20']"
+        style="
+          transition-duration: 200ms;
+          transition-timing-function: var(--default-timing-function);
+          transition-property: all;
+        "
       />
     </div>
   </Transition>

@@ -44,10 +44,7 @@ export default defineNuxtConfig({
     },
   },
 
-  css: [
-      "~/main.css",
-    "@fancyapps/ui/dist/fancybox/fancybox.css",
-  ],
+  css: ["~/main.css", "@fancyapps/ui/dist/fancybox/fancybox.css"],
 
   postcss: {
     plugins: {

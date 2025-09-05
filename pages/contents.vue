@@ -107,7 +107,6 @@ const projects = [
 </template>
 
 <style scoped>
-
 @media (min-width: 768px) {
   .contents-container div {
     aspect-ratio: 16/9;
