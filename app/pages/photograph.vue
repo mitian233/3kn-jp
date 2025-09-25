@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import siteConfig from "~/site.config";
+import siteConfig from "~/../site.config";
 
 const PageRef = ref<HTMLDivElement | null>(null);
 const beforeEnter = () => PageRef.value?.classList.add("overflow-hidden");
