@@ -40,16 +40,16 @@ const isHome = computed(() => route.path === "/");
   <div class="h-[100dvh] w-full">
     <div class="h-full w-full flex flex-col pt-8 pl-8 font-['Poppins']">
       <div class="mb-8 flex flex-row">
-        <NuxtLink
-          v-if="!isHome"
-          to="/"
-          @click.prevent="pushRouter('/')"
-        >
-          <h1 class="font-bold text-4xl md:text-6xl mb-2 tracking-[.25em]">3KN</h1>
+        <NuxtLink v-if="!isHome" to="/" @click.prevent="pushRouter('/')">
+          <h1 class="font-bold text-4xl md:text-6xl mb-2 tracking-[.25em]">
+            3KN
+          </h1>
           <p class="font-bold tracking-[.25em]">mikan official website</p>
         </NuxtLink>
         <div v-else>
-          <h1 class="font-bold text-4xl md:text-6xl mb-2 tracking-[.25em]">3KN</h1>
+          <h1 class="font-bold text-4xl md:text-6xl mb-2 tracking-[.25em]">
+            3KN
+          </h1>
           <p class="font-bold tracking-[.25em]">mikan official website</p>
         </div>
       </div>

@@ -52,7 +52,18 @@ export default defineNuxtConfig({
     },
   },
 
+<<<<<<< HEAD
   css: ["~/assets/css/main.css", "@fancyapps/ui/dist/fancybox/fancybox.css"],
+=======
+  css: ["~/main.css", "@fancyapps/ui/dist/fancybox/fancybox.css"],
+
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
+>>>>>>> nuxt
 
   modules: ["@nuxt/content", "nuxt-gtag", "@nuxt/eslint"],
 

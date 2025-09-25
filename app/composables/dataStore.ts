@@ -5,4 +5,5 @@ export const useMenuAnimationState = () =>
   useState("menuAnimation", () => true);
 export const useBgBlackState = () => useState("bgBlack", () => false);
 // export const useNavigationAnimationState = () => useState('navigationAnimation', () => false)
-export const useLoadingIndicatorState = () => useState("loadingIndicator", () => false);
+export const useLoadingIndicatorState = () =>
+  useState("loadingIndicator", () => false);
