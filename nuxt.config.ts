@@ -1,9 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import siteConfig from "./site.config";
+import tailwindcss from "@tailwindcss/vite";
+
 export default defineNuxtConfig({
+  compatibilityDate: "2025-07-15",
+
   devtools: { enabled: true },
 
   content: {},
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
 
   app: {
     head: {
@@ -44,23 +52,11 @@ export default defineNuxtConfig({
     },
   },
 
-  css: [
-      "~/main.css",
-    "@fancyapps/ui/dist/fancybox/fancybox.css",
-  ],
-
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    },
-  },
+  css: ["~/assets/css/main.css", "@fancyapps/ui/dist/fancybox/fancybox.css"],
 
   modules: ["@nuxt/content", "nuxt-gtag", "@nuxt/eslint"],
 
   gtag: {
     id: "G-3JH0BQ2RSZ",
   },
-
-  compatibilityDate: "2025-01-15",
 });

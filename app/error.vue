@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import siteConfig from "./site.config";
+import siteConfig from "~/../site.config";
 import type { NuxtError } from "#app";
 const router = useRouter();
 const props = defineProps({

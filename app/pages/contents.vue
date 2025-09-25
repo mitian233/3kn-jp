@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import siteConfig from "~/site.config";
+import siteConfig from "~/../site.config";
 
 useHead({
   title: "Contents | " + siteConfig.title,
@@ -107,7 +107,6 @@ const projects = [
 </template>
 
 <style scoped>
-
 @media (min-width: 768px) {
   .contents-container div {
     aspect-ratio: 16/9;
