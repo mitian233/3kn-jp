@@ -15,7 +15,8 @@ if (route.path === "/") {
 
 watch(
   () => showMenu.value,
-  (newVal, oldValue) => {
+  async (newVal, oldValue) => {
+    await nextTick();
     if (newVal === true && oldValue === false) {
       requestAnimationFrame(() => {
         subAniPlay.value = newVal;
