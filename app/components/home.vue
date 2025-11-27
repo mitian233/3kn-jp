@@ -58,13 +58,20 @@ const isHome = computed(() => route.path === "/");
         :key="index"
         :to="item.path"
         :class="[
-          'relative text-3xl md:text-5xl hover:text-white duration-100 overflow-hidden group',
-          isCurrentPath(item.path) && 'bg-black text-white cursor-not-allowed',
+          'relative text-3xl md:text-5xl duration-100 overflow-hidden group',
+          isCurrentPath(item.path)
+            ? 'text-white hover:text-black cursor-not-allowed'
+            : 'text-black hover:text-white',
         ]"
         @click.prevent="isCurrentPath(item.path) || pushRouter(item.path)"
       >
         <div
-          class="absolute inset-0 bg-black transform translate-x-full group-hover:-translate-x-0 transition-transform duration-250 ease-out -z-10 mix-blend-multiply"
+          :class="[
+            'absolute inset-0 transform bg-black transition-transform duration-250 ease-out -z-10 mix-blend-multiply',
+            isCurrentPath(item.path)
+              ? '-translate-x-0 group-hover:-translate-x-full'
+              : 'translate-x-full group-hover:-translate-x-0',
+          ]"
         ></div>
         <p
           :class="[
