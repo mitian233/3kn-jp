@@ -54,7 +54,7 @@ export default defineNuxtConfig({
 
   css: ["~/assets/css/main.css", "@fancyapps/ui/dist/fancybox/fancybox.css"],
 
-  modules: ["@nuxt/content", "nuxt-gtag", "@nuxt/eslint"],
+  modules: ["@nuxt/content", "nuxt-gtag", "@nuxt/eslint", "@prisma/nuxt"],
 
   gtag: {
     id: "G-3JH0BQ2RSZ",
