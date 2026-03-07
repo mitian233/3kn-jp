@@ -22,9 +22,14 @@ useHead({
   <div class="w-full">
     <template v-if="post">
       <div class="p-4">
-        <div class="mb-3 border-r-[10px] border-b-[1px] border-black">
+        <div
+          class="mb-3 border-r-[10px] border-b-[1px]"
+          style="border-color: var(--text)"
+        >
           <h1 class="text-3xl font-bold">{{ post.title }}</h1>
-          <p class="text-sm text-gray-500">{{ post.date }}</p>
+          <p class="text-sm" style="color: var(--text-secondary)">
+            {{ post.date }}
+          </p>
           <p>{{ post.description }}</p>
         </div>
         <ContentRenderer :value="post" class="prose" />

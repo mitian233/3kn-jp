@@ -1,24 +1,23 @@
 <script setup lang="ts">
 import { useLoadingIndicatorState } from "~/composables/dataStore";
+import { useTheme } from "~/composables/useTheme";
 import pulseSvg from "@/assets/pulse.svg";
 
 const PageRef = ref<HTMLDivElement | null>(null);
 const beforeEnter = () => PageRef.value?.classList.add("overflow-hidden");
 const afterLeave = () => PageRef.value?.classList.remove("overflow-hidden");
 const showLoadingIndicator = useLoadingIndicatorState();
+const { initTheme } = useTheme();
 
-// let startTime = 0;
 useRuntimeHook("page:start", () => {
   showLoadingIndicator.value = true;
-  // console.debug('Page started loading!')
-  // startTime = new Date().getTime();
 });
 useRuntimeHook("page:finish", () => {
   showLoadingIndicator.value = false;
-  // console.debug('Page finished loading!', (new Date().getTime() - startTime));
 });
 
 onMounted(() => {
+  initTheme();
   console.log(
     `%c3kn%c.jp`,
     "color: black; font-size: 20px; background-color: white;",
@@ -28,9 +27,6 @@ onMounted(() => {
     "%cUse Mobile QQ to scan the QR code to join my QQ group",
     "font-size: 15px;",
   );
-  // qrcode.generate("https://qm.qq.com/q/ZIXmUrY6oa", { small: true }, (qrcode) => {
-  //   console.log(`%c${qrcode}`, "color: #ff8899; font-size: 20px; background-color: white;");
-  // });
   console.log(
     `%c▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 █ ▄▄▄▄▄ █ ▄▄█▀▀ █ █ ▄▄▄▄▄ █
@@ -55,7 +51,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="PageRef" class="min-h-[100svh] w-full relative">
+  <div
+    ref="PageRef"
+    class="min-h-[100svh] w-full relative"
+    style="background-color: var(--bg); color: var(--text)"
+  >
     <NuxtPage
       :transition="{
         name: 'page',

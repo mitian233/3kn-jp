@@ -96,9 +96,9 @@ const projects = [
             class="object-cover w-full h-full blur-sm group-hover:scale-125 group-hover:blur-none duration-300"
           />
           <div
-            class="absolute left-0 top-0 right-0 bottom-0 flex justify-center items-center group-hover:opacity-0 group-hover:scale-125 duration-300"
+            class="absolute left-0 top-0 right-0 bottom-0 flex justify-center items-center group-hover:opacity-0 group-hover:scale-125 duration-300 text-white mix-blend-difference"
           >
-            <p>{{ item.title }}</p>
+            <p class="font-bold text-center px-2">{{ item.title }}</p>
           </div>
         </a>
       </div>

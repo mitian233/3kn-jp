@@ -1,10 +1,24 @@
 // @ts-check
 import withNuxt from "./.nuxt/eslint.config.mjs";
 import eslintConfigPrettier from "eslint-config-prettier";
+import vueParser from "vue-eslint-parser";
 
 export default withNuxt(
-  // Your custom configs here
   {
+    files: ["**/*.vue"],
+    languageOptions: {
+      parser: vueParser,
+      parserOptions: {
+        parser: {
+          ts: "@typescript-eslint/parser",
+          js: "espree",
+          "<template>": "espree",
+        },
+        extraFileExtensions: [".vue"],
+        ecmaVersion: "latest",
+        sourceType: "module",
+      },
+    },
     rules: {
       "vue/html-indent": ["error", 2],
       "vue/multi-word-component-names": "off",
@@ -24,13 +38,10 @@ export default withNuxt(
       "vue/component-definition-name-casing": ["error", "PascalCase"],
       "vue/no-v-html": "off",
       "vue/no-multiple-template-root": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/explicit-module-boundary-types": "off",
-      "@typescript-eslint/no-unused-vars": "warn",
       semi: ["error", "always"],
       quotes: ["error", "single"],
-      // indent: ["error", 4],
       "comma-dangle": ["error", "never"],
+      "no-unused-vars": "off",
     },
     ignores: ["eslint.config.mjs"],
   },

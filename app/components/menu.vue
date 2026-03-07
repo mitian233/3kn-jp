@@ -52,7 +52,8 @@ onBeforeRouteUpdate((route) => {
   <Transition :name="menuAnimation ? 'slide' : undefined">
     <div
       v-show="showMenu"
-      class="fixed top-0 right-0 left-0 bg-white overflow-y-auto"
+      class="fixed top-0 right-0 left-0 overflow-y-auto"
+      style="background-color: var(--bg)"
     >
       <Home
         :class="[subAniPlay || '-translate-y-20']"
@@ -68,10 +69,10 @@ onBeforeRouteUpdate((route) => {
     <div v-if="showMenuButton" class="fixed top-5 right-5">
       <button
         :class="[
-          bgBlack && !showMenu && 'text-white',
           'duration-100 button-animation',
           showMenu && 'button-animation-stop',
         ]"
+        style="color: var(--text)"
         @click="showMenu = !showMenu"
       >
         <svg
@@ -90,7 +91,7 @@ onBeforeRouteUpdate((route) => {
               style="
                 fill: none;
                 fill-opacity: 1;
-                stroke: #000000;
+                stroke: currentColor;
                 stroke-width: 3;
                 stroke-linecap: round;
                 stroke-linejoin: round;

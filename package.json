@@ -22,6 +22,7 @@
     "better-sqlite3": "^12.2.0",
     "eslint": "^9.20.1",
     "gsap": "^3.12.5",
+    "lucide-vue-next": "^0.577.0",
     "nuxt": "^4.1.2",
     "nuxt-gtag": "^2.0.6",
     "qrcode-terminal": "^0.12.0",
@@ -31,9 +32,12 @@
   },
   "devDependencies": {
     "@types/eslint-config-prettier": "^6.11.3",
+    "@typescript-eslint/parser": "^8.56.1",
     "autoprefixer": "^10.4.19",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.3",
-    "prettier": "^3.5.1"
+    "prettier": "^3.5.1",
+    "typescript-eslint": "^8.56.1",
+    "vue-eslint-parser": "^10.4.0"
   }
 }

@@ -20,10 +20,33 @@ useHead({
         <button
           :class="[
             'text-4xl font-bold tracking-[.25em] cursor-default duration-100',
-            useSuperLink &&
-              'cursor-pointer bg-black text-white hover:bg-white hover:text-black',
+            useSuperLink && 'cursor-pointer',
           ]"
+          :style="
+            useSuperLink
+              ? {
+                  backgroundColor: 'var(--text)',
+                  color: 'var(--bg)',
+                }
+              : {}
+          "
           @click="useSuperLink && useRouter().push('/photograph')"
+          @mouseenter="
+            (e) => {
+              if (useSuperLink) {
+                e.target.style.backgroundColor = 'var(--bg)';
+                e.target.style.color = 'var(--text)';
+              }
+            }
+          "
+          @mouseleave="
+            (e) => {
+              if (useSuperLink) {
+                e.target.style.backgroundColor = 'var(--text)';
+                e.target.style.color = 'var(--bg)';
+              }
+            }
+          "
         >
           PHOTOGRAPH
         </button>

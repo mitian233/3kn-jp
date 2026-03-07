@@ -40,13 +40,18 @@ const isHome = computed(() => route.path === "/");
   <div class="h-[100dvh] w-full">
     <div class="h-full w-full flex flex-col pt-8 pl-8 font-['Poppins']">
       <div class="mb-8 flex flex-row">
-        <NuxtLink v-if="!isHome" to="/" @click.prevent="pushRouter('/')">
+        <NuxtLink
+          v-if="!isHome"
+          to="/"
+          style="color: var(--text)"
+          @click.prevent="pushRouter('/')"
+        >
           <h1 class="font-bold text-4xl md:text-6xl mb-2 tracking-[.25em]">
             3KN
           </h1>
           <p class="font-bold tracking-[.25em]">mikan official website</p>
         </NuxtLink>
-        <div v-else>
+        <div v-else style="color: var(--text)">
           <h1 class="font-bold text-4xl md:text-6xl mb-2 tracking-[.25em]">
             3KN
           </h1>
@@ -57,32 +62,35 @@ const isHome = computed(() => route.path === "/");
         v-for="(item, index) in menuLinks"
         :key="index"
         :to="item.path"
-        :class="[
-          'relative text-3xl md:text-5xl duration-100 overflow-hidden group',
-          isCurrentPath(item.path)
-            ? 'text-white hover:text-black cursor-not-allowed'
-            : 'text-black hover:text-white',
-        ]"
+        class="relative text-3xl md:text-5xl duration-100 overflow-hidden group"
+        :style="{
+          color: isCurrentPath(item.path) ? 'var(--bg)' : 'var(--text)',
+        }"
         @click.prevent="isCurrentPath(item.path) || pushRouter(item.path)"
       >
         <div
           :class="[
-            'absolute inset-0 transform bg-black transition-transform duration-250 ease-out -z-10 mix-blend-multiply',
+            'absolute inset-0 transform transition-transform duration-250 ease-out -z-10',
             isCurrentPath(item.path)
               ? '-translate-x-0 group-hover:-translate-x-full'
               : 'translate-x-full group-hover:-translate-x-0',
           ]"
+          :style="{ backgroundColor: 'var(--text)' }"
         ></div>
         <p
           :class="[
-            'py-3 font-bold tracking-[.25em]',
+            'py-3 font-bold tracking-[.25em] transition-colors duration-250',
             isCurrentPath(item.path) && 'line-through',
+            !isCurrentPath(item.path) && 'group-hover:text-[var(--bg)]',
           ]"
         >
           {{ item.title.toUpperCase() }}
         </p>
       </NuxtLink>
-      <Links />
+      <div class="mt-8 flex flex-row items-center gap-5">
+        <Links />
+        <ThemeToggle />
+      </div>
     </div>
   </div>
 </template>

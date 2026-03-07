@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<Props>(), {
   color: "#ff8899",
   size: "md",
   overlay: true,
-  backgroundColor: "rgba(255, 255, 255, 0.9)",
+  backgroundColor: "",
 });
 
 // 使用 props 进行响应式处理
@@ -34,11 +34,7 @@ const textSizeClasses = {
 </script>
 
 <template>
-  <div
-    class="loading-screen"
-    :class="{ 'loading-overlay': overlay }"
-    :style="{ backgroundColor: overlay ? backgroundColor : 'transparent' }"
-  >
+  <div class="loading-screen" :class="{ 'loading-overlay': overlay }">
     <div class="loading-container">
       <!-- Pulse Animation -->
       <div
@@ -112,6 +108,7 @@ const textSizeClasses = {
   bottom: 0;
   z-index: 9999;
   backdrop-filter: blur(2px);
+  background-color: rgba(var(--bg-rgb), 0.9);
 }
 
 .loading-container {

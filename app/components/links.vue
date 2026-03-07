@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="mt-8 flex flex-row gap-5">
+  <div class="flex flex-row gap-5" style="color: var(--text)">
     <a href="https://x.com/mikan_chn" target="_blank">
       <svg
         xmlns="http://www.w3.org/2000/svg"
