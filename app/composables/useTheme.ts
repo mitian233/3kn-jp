@@ -1,8 +1,22 @@
 import { useThemeState } from "./dataStore";
 
 export type ThemeMode = "light" | "dark" | "system";
+type ResolvedThemeMode = Exclude<ThemeMode, "system">;
 
-const getSystemTheme = (): "light" | "dark" => {
+type ThemeChangeEvent = MediaQueryListEvent;
+
+type DocumentWithOptionalViewTransition = Document & {
+  startViewTransition?: (
+    updateCallback: () => Promise<void> | void,
+  ) => ViewTransition;
+};
+
+const THEME_MODES: readonly ThemeMode[] = ["light", "dark", "system"];
+
+const isThemeMode = (value: string | null): value is ThemeMode =>
+  value !== null && THEME_MODES.includes(value as ThemeMode);
+
+const getSystemTheme = (): ResolvedThemeMode => {
   if (import.meta.client) {
     return window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
@@ -13,8 +27,8 @@ const getSystemTheme = (): "light" | "dark" => {
 
 const getStoredTheme = (): ThemeMode => {
   if (import.meta.client) {
-    const stored = localStorage.getItem("theme") as ThemeMode | null;
-    if (stored && ["light", "dark", "system"].includes(stored)) {
+    const stored = localStorage.getItem("theme");
+    if (isThemeMode(stored)) {
       return stored;
     }
   }
@@ -23,9 +37,9 @@ const getStoredTheme = (): ThemeMode => {
 
 export const useTheme = () => {
   const themeState = useThemeState();
-  const actualTheme = ref<"light" | "dark">("light");
+  const actualTheme = ref<ResolvedThemeMode>("light");
 
-  const applyTheme = (theme: "light" | "dark") => {
+  const applyTheme = (theme: ResolvedThemeMode) => {
     if (import.meta.client) {
       const html = document.documentElement;
       html.setAttribute("data-theme", theme);
@@ -68,14 +82,15 @@ export const useTheme = () => {
         newActual === "dark" ? "transition-to-dark" : "transition-to-light";
       html.classList.add(transitionClass);
 
-      const transition = (document as any).startViewTransition(async () => {
+      const transitionDocument = document as DocumentWithOptionalViewTransition;
+      const transition = transitionDocument.startViewTransition?.(async () => {
         applyTheme(newActual);
         actualTheme.value = newActual;
         await nextTick();
       });
 
-      transition.ready.then(() => {
-        const clipPath = [
+      transition?.ready.then(() => {
+        const clipPath: [string, string] = [
           `circle(0px at ${x}px ${y}px)`,
           `circle(${endRadius}px at ${x}px ${y}px)`,
         ];
@@ -95,7 +110,7 @@ export const useTheme = () => {
         );
       });
 
-      transition.finished.then(() => {
+      transition?.finished.finally(() => {
         html.classList.remove(transitionClass);
       });
     } else {
@@ -114,7 +129,7 @@ export const useTheme = () => {
 
       window
         .matchMedia("(prefers-color-scheme: dark)")
-        .addEventListener("change", (e) => {
+        .addEventListener("change", (e: ThemeChangeEvent) => {
           if (themeState.value === "system") {
             const newActual = e.matches ? "dark" : "light";
             actualTheme.value = newActual;

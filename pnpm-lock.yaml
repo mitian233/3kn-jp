@@ -47,6 +47,9 @@ importers:
       tailwindcss:
         specifier: ^4.1.13
         version: 4.1.13
+      ufo:
+        specifier: ^1.6.1
+        version: 1.6.1
       vue:
         specifier: ^3.4.27
         version: 3.5.22(typescript@5.9.2)

@@ -62,7 +62,11 @@ const isHome = computed(() => route.path === "/");
         v-for="(item, index) in menuLinks"
         :key="index"
         :to="item.path"
-        class="relative text-3xl md:text-5xl duration-100 overflow-hidden group"
+        :class="[
+          'relative text-3xl md:text-5xl duration-100 overflow-hidden',
+          !isCurrentPath(item.path) && 'group cursor-pointer',
+          isCurrentPath(item.path) && 'cursor-default',
+        ]"
         :style="{
           color: isCurrentPath(item.path) ? 'var(--bg)' : 'var(--text)',
         }"
@@ -72,7 +76,7 @@ const isHome = computed(() => route.path === "/");
           :class="[
             'absolute inset-0 transform transition-transform duration-250 ease-out -z-10',
             isCurrentPath(item.path)
-              ? '-translate-x-0 group-hover:-translate-x-full'
+              ? '-translate-x-0'
               : 'translate-x-full group-hover:-translate-x-0',
           ]"
           :style="{ backgroundColor: 'var(--text)' }"
@@ -88,8 +92,8 @@ const isHome = computed(() => route.path === "/");
         </p>
       </NuxtLink>
       <div class="mt-8 flex flex-row items-center gap-5">
-        <Links />
         <ThemeToggle />
+        <Links />
       </div>
     </div>
   </div>
