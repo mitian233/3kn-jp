@@ -13,6 +13,17 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()],
   },
 
+  hooks: {
+    "vite:extendConfig": (config) => {
+      config.optimizeDeps ??= {};
+      config.optimizeDeps.include = config.optimizeDeps.include?.filter(
+        (entry) =>
+          !entry.startsWith("@nuxtjs/mdc > ") &&
+          !entry.startsWith("@nuxt/content > @nuxtjs/mdc > "),
+      );
+    },
+  },
+
   app: {
     head: {
       htmlAttrs: {
