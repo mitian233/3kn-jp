@@ -31,21 +31,11 @@ watch(
 
 watch(
   () => route.path,
-  () => {
-    if (route.path !== "/") {
-      showMenuButton.value = true;
-    } else {
-      showMenuButton.value = false;
-    }
+  (path) => {
+    showMenuButton.value = path !== "/";
+    menuAnimation.value = path !== "/";
   },
 );
-onBeforeRouteUpdate((route) => {
-  if (route.path !== "/") {
-    menuAnimation.value = true;
-  } else {
-    menuAnimation.value = false;
-  }
-});
 </script>
 
 <template>
