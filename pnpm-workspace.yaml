@@ -1,4 +1,4 @@
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - better-sqlite3
-  - esbuild
+allowBuilds:
+  better-sqlite3: true
+  esbuild: true
+  unrs-resolver: true
